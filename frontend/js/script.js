@@ -32,16 +32,16 @@ async function carregarDestinos() {
   
   try {
     const response = await fetch(`${API_BASE}/destinos.php`);
-
+console.log(response)
     if (!response.ok) {
       lista.innerHTML = `<p>Erro ao carregar destinos (Status: ${response.status}).</p>`;
       return;
     }
 
     const destinos = await response.json();
+    console.log(destinos)
     exibirDestinos(destinos);
   } catch (erro) {
-    console.error("Falha na requisição:", erro);
     lista.innerHTML = `<p>Não foi possível acessar a API.</p>`;
   }
 }
